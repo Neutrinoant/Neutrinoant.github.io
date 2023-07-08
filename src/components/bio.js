@@ -16,6 +16,7 @@ const Bio = () => {
         siteMetadata {
           author {
             name
+            page
             summary
           }
           social {
@@ -36,7 +37,7 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
+        src="../images/profile-pic-cat.jpg"
         width={50}
         height={50}
         quality={95}
@@ -44,11 +45,12 @@ const Bio = () => {
       />
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
+          Written by{" "}
+          <strong>
+            <a href={author.page}>{author.name}</a>
+          </strong>{" "}
+          {author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
         </p>
       )}
     </div>
